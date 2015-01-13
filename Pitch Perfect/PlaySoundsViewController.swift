@@ -35,11 +35,26 @@ class PlaySoundsViewController: UIViewController {
     @IBAction func playSlowAudio(sender: AnyObject) {
         // var url = NSBundle.mainBundle().URLForResource("movie_quote", withExtension: "mp3")
         // audioPlayer = AVAudioPlayer(contentsOfURL: url, error: nil)
-        audioPlayer.stop()
         audioPlayer.rate = 0.5
-        audioPlayer.play()
+        playAudio()
     }
 
+    @IBAction func playFastAudio(sender: AnyObject) {
+        audioPlayer.rate = 1.5
+        playAudio()
+    }
+    
+    func playAudio() {
+        audioPlayer.stop()
+        audioPlayer.currentTime = 0
+        audioPlayer.rate = 1.5
+        audioPlayer.play()
+    }
+    
+    @IBAction func stopPlayingAudio(sender: AnyObject) {
+        audioPlayer.stop()
+    }
+    
     /*
     // MARK: - Navigation
 
