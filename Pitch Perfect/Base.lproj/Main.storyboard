@@ -8,7 +8,7 @@
         <!--Record-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="RecordSoundsViewController" customModule="Pitch_Perfect" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -38,7 +38,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="7KG-ds-Frw" kind="show" id="UlU-eD-Cn2"/>
+                                    <action selector="stopAudio:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ic1-kl-6NA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -89,6 +89,7 @@
                         <outlet property="recordButton" destination="jjj-3z-u4i" id="55R-h1-URO"/>
                         <outlet property="recordingInProgress" destination="ceO-Fj-4Pb" id="jEj-sy-et7"/>
                         <outlet property="stopButton" destination="Kj5-kd-Im9" id="qsO-Kx-8ry"/>
+                        <segue destination="7KG-ds-Frw" kind="show" identifier="stopRecording" id="CSE-Tq-3GL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
