@@ -75,6 +75,10 @@ class PlaySoundsViewController: UIViewController {
         audioPlayerNode.play()
     }
     
+    @IBAction func playDartvaderAudio(sender: AnyObject) {
+        playAudioWithVariablePitch(-1000)
+    }
+    
     func playAudio() {
         audioPlayer.stop()
         audioPlayer.currentTime = 0
