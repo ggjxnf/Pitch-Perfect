@@ -60,12 +60,12 @@
                                 <exclude reference="Kj5-kd-Im9"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="D9M-NF-Td6"/>
-                                <exclude reference="UAf-At-yox"/>
                                 <exclude reference="MXJ-sR-PcQ"/>
                                 <exclude reference="dQ4-nN-eUi"/>
                                 <exclude reference="83T-8b-afP"/>
                                 <exclude reference="yl5-or-wCR"/>
+                                <exclude reference="D9M-NF-Td6"/>
+                                <exclude reference="UAf-At-yox"/>
                             </mask>
                         </variation>
                         <variation key="widthClass=compact">
@@ -75,12 +75,12 @@
                                 <include reference="Kj5-kd-Im9"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="D9M-NF-Td6"/>
-                                <include reference="UAf-At-yox"/>
                                 <include reference="MXJ-sR-PcQ"/>
                                 <include reference="dQ4-nN-eUi"/>
                                 <include reference="83T-8b-afP"/>
                                 <include reference="yl5-or-wCR"/>
+                                <include reference="D9M-NF-Td6"/>
+                                <include reference="UAf-At-yox"/>
                             </mask>
                         </variation>
                     </view>
@@ -105,6 +105,7 @@
                         <viewControllerLayoutGuide type="bottom" id="L97-1U-BT9"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Kp9-NL-0Gd">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOF-Fk-QFk">
@@ -134,9 +135,22 @@
                                     <action selector="stopPlayingAudio:" destination="7KG-ds-Frw" eventType="touchUpInside" id="qJF-yf-luS"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oqk-yt-OAA">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <state key="normal" image="chipmunk">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="playChipmunkAudio:" destination="7KG-ds-Frw" eventType="touchUpInside" id="xZY-jR-vZM"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Oqk-yt-OAA" firstAttribute="centerX" secondItem="SOF-Fk-QFk" secondAttribute="centerX" id="12t-r7-qMw"/>
+                            <constraint firstItem="Oqk-yt-OAA" firstAttribute="top" secondItem="SOF-Fk-QFk" secondAttribute="bottom" constant="45" id="2zb-iz-kkM">
+                                <variation key="widthClass=compact" constant="50"/>
+                            </constraint>
                             <constraint firstItem="SOF-Fk-QFk" firstAttribute="leading" secondItem="Kp9-NL-0Gd" secondAttribute="leadingMargin" constant="34" id="6cv-rH-uqY">
                                 <variation key="widthClass=compact" constant="30"/>
                             </constraint>
@@ -155,10 +169,13 @@
                                 <exclude reference="SOF-Fk-QFk"/>
                                 <exclude reference="cHP-fH-spF"/>
                                 <exclude reference="b9Z-vh-ChW"/>
+                                <exclude reference="Oqk-yt-OAA"/>
                             </mask>
                             <mask key="constraints">
                                 <exclude reference="6cv-rH-uqY"/>
                                 <exclude reference="Ovz-Ag-Aew"/>
+                                <exclude reference="12t-r7-qMw"/>
+                                <exclude reference="2zb-iz-kkM"/>
                                 <exclude reference="8K9-xO-hld"/>
                                 <exclude reference="sc9-zv-Akz"/>
                                 <exclude reference="CcN-Xz-xvY"/>
@@ -170,10 +187,13 @@
                                 <include reference="SOF-Fk-QFk"/>
                                 <include reference="cHP-fH-spF"/>
                                 <include reference="b9Z-vh-ChW"/>
+                                <include reference="Oqk-yt-OAA"/>
                             </mask>
                             <mask key="constraints">
                                 <include reference="6cv-rH-uqY"/>
                                 <include reference="Ovz-Ag-Aew"/>
+                                <include reference="12t-r7-qMw"/>
+                                <include reference="2zb-iz-kkM"/>
                                 <include reference="8K9-xO-hld"/>
                                 <include reference="sc9-zv-Akz"/>
                                 <include reference="CcN-Xz-xvY"/>
@@ -206,6 +226,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chipmunk" width="100" height="100"/>
         <image name="fast" width="100" height="100"/>
         <image name="microphone" width="100" height="100"/>
         <image name="slow" width="100" height="100"/>
