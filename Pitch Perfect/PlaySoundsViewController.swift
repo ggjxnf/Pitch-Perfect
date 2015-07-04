@@ -18,17 +18,25 @@ class PlaySoundsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        /*
+        do {
+            /*
         if var filePath = NSBundle.mainBundle().pathForResource("movie_quote", ofType: "mp3") {
             var filePathUrl = NSURL.fileURLWithPath(filePath)
             
         } else {
             println("file not found")
         }*/
-        audioPlayer = AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl, error: nil)
+            audioPlayer = try AVAudioPlayer(contentsOfURL: receivedAudio.filePathUrl)
+        } catch _ {
+            audioPlayer = nil
+        }
         audioPlayer.enableRate = true
         audioEngine = AVAudioEngine()
-        audioFile = AVAudioFile(forReading: receivedAudio.filePathUrl, error: nil)
+        do {
+            audioFile = try AVAudioFile(forReading: receivedAudio.filePathUrl)
+        } catch _ {
+            audioFile = nil
+        }
         
         // Do any additional setup after loading the view.
     }
@@ -59,10 +67,10 @@ class PlaySoundsViewController: UIViewController {
         audioEngine.stop()
         audioEngine.reset()
         
-        var audioPlayerNode = AVAudioPlayerNode()
+        let audioPlayerNode = AVAudioPlayerNode()
         audioEngine.attachNode(audioPlayerNode)
         
-        var changePitchEffect = AVAudioUnitTimePitch()
+        let changePitchEffect = AVAudioUnitTimePitch()
         changePitchEffect.pitch = pitch
         audioEngine.attachNode(changePitchEffect)
         
@@ -70,7 +78,10 @@ class PlaySoundsViewController: UIViewController {
         audioEngine.connect(changePitchEffect, to: audioEngine.outputNode, format: nil)
         
         audioPlayerNode.scheduleFile(audioFile, atTime: nil, completionHandler: nil)
-        audioEngine.startAndReturnError(nil)
+        do {
+            try audioEngine.start()
+        } catch _ {
+        }
         
         audioPlayerNode.play()
     }
